@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>star & delta</title>
+	
+	<style>
+	
+		#st{
+			
+			hight:600px;
+			width:600px;
+			
+			padding:10px ;
+			margin:100px;
+			
+			border:2px solid blue;
+			
+			background:aqua fixed;
+		}
+	
+	</style>
+	
+	
+</head>
+<body>
+	
+		<div id="st">
+		
+			<input type = "text" id="R1" placeholder="R1/R12"> 
+			<input type = "text" id="R2" placeholder="R2/R23"> 
+			<input type = "text" id="R3" placeholder="R3/R31"> 
+			
+			
+			<button onclick="fn1()">click</button>
+
+			<div id="out"></div>
+			<br/>
+			<input type= "radio" id="rd1" name="hi" >to delta</input>
+			<input type= "radio" id="rd2" name="hi" >to star</input>
+			
+		</div>
+	
+	
+	
+	
+	<script type="text/javascript">
+	function fn1(){
+		var rd1 = document.getElementById("rd1");
+		var rd2 = document.getElementById("rd2");
+		var R1=document.getElementById("R1");
+		var R2=document.getElementById("R2");
+		var R3=document.getElementById("R3");
+	if(Number(R1.value)>0&&Number(R2.value)>0&&Number(R3.value)>0){	
+		var output = document.getElementById("out");
+	if(rd1.checked==true){
+		"use strict";
+		var x=Number(R1.value)+Number(R2.value)+R1.value*R2.value/R3.value;
+		var y=Number(R2.value)+Number(R3.value)+R2.value*R3.value/R1.value;
+		var z=Number(R3.value)+Number(R1.value)+R3.value*R1.value/R2.value;
+		
+		
+       output.innerHTML="R12= "+x+" R23= "+y+" R31= "+z;
+	   
+		}
+	if(rd2.checked==true){
+	
+		var x = (R1.value*R3.value)/(Number(R1.value)+Number(R2.value)+Number(R3.value));
+		var y = (R1.value*R2.value)/(Number(R1.value)+Number(R2.value)+Number(R3.value));
+		var z = (R2.value*R3.value)/(Number(R1.value)+Number(R2.value)+Number(R3.value));
+	
+		 output.innerHTML="R1= "+x+" R2= "+y+" R3= "+z;
+	
+	}
+	}
+	else
+	alert("mr resistance is sad no non_positive R");
+	};
+	</script>
+</body>
+
+
+
+</html>
